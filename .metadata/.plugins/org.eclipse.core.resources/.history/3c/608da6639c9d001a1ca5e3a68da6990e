@@ -1,0 +1,21 @@
+package com.example.lwcurrencyconvert.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class CurrencyConvertServiceImpl implements CurrencyConvertService {
+
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@Override
+	public Double convertCurrency(Double amount, String countryCode) {
+		
+		Double conversionFactor = restTemplate.getForObject("http://conversionFact/getConversionFactor/countryCode/{countryCode}", Double.class,countryCode);
+		Double convertedAmount = amount*conversionFactor;
+		return convertedAmount;
+	}
+
+}

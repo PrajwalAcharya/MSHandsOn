@@ -1,0 +1,12 @@
+server:
+  port: 8085
+spring:  
+  application:
+    name: lw-currencyconvert
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+
+     
+    
