@@ -40,7 +40,7 @@ public class CurrencyConvertServiceImpl implements CurrencyConvertService {
 		// Double conversionFactor =
 		// currencyConvertProxy.getConversionFactor(countryCode);
 		ServiceInstance instance = lbClient.choose("lw-conversion");
-		String url = "http://" + instance.getHost() + ":" + instance.getPort()
+		String url = "http://192.168.99.100"+ ":" + instance.getPort()
 				+ "/conversionFact/getConversionFactor/countryCode/{countryCode}";
 		Double conversionFactor = restTemplate.getForObject(url, Double.class, countryCode);
 		Double convertedAmount = amount * conversionFactor;

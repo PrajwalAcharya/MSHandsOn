@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\w2cluster290\MSHandsOn\OrderMicroservice"/>
+			<item value="C:\Users\w2cluster290\MSHandsOn\LoginService"/>
+			<item value="C:\Users\w2cluster290\Downloads\Zipkin-Server"/>
 			<item value="C:\Users\w2cluster290\MSHandsOn\EurekaServer"/>
 			<item value="C:\Users\w2cluster290\MSVirtualSession2020-2704\common\eureka-server"/>
 			<item value="C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert"/>

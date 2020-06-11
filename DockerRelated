@@ -1,0 +1,137 @@
+"Starting docker network........."
+Error response from daemon: network with name ms-chassis-nw already exists
+Hashicorp Consul(Y/N):
+Zipkin(Y/N):Y
+"Starting Zipkin >>>"
+Starting zipkin_zipkin_1 ... done
+Jenkins(Y/N):
+jaeger (bind 9411 for zipkin compatability) (Y/N):
+Prometheus(Y/N):
+Grafana(Y/N):
+Mongodb(Y/N):
+MySQL(Y/N):
+Redis (Y/N):
+Hashicorp Vault(Y/N):
+Rabbit MQ(Y/N):
+Kafka(Y/N):
+Config Server(Y/N):
+Eureka Service Discovery (Y/N):
+Turbine (Y/N):
+API Gateway (Y/N):
+
+CONTAINERS
+---------------------------------------------------------------------------------
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                              NAMES
+50c4a8243cbe        openzipkin/zipkin   "/busybox/sh run.sh"   2 weeks ago         Up 11 seconds       9410/tcp, 0.0.0.0:9411->9411/tcp   zipkin_zipkin_1
+
+*** END OF INSTALLATION ***
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker ps
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                              NAMES
+50c4a8243cbe        openzipkin/zipkin   "/busybox/sh run.sh"   2 weeks ago         Up 50 seconds       9410/tcp, 0.0.0.0:9411->9411/tcp   zipkin_zipkin_1
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker images
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+prajwaldock/lwconversion04jun        1                   76127a19f978        7 days ago          237MB
+prajwaldock/lwcurrencyconvert04jun   1                   c0b7afd7bae8        7 days ago          245MB
+prajwaldock/eureka04jun              1                   69e7eadbf024        7 days ago          206MB
+prajwaldock/eurekaservermay          1                   70c018e32919        2 weeks ago         206MB
+prajwaldock/conversion               1                   8d7ff36f66fe        2 weeks ago         237MB
+prajwaldock/currencyconvert          1                   b800690dff86        2 weeks ago         245MB
+fabric8/java-alpine-openjdk8-jdk     latest              2b7844efe720        6 weeks ago         108MB
+openzipkin/zipkin                    latest              2c6020d0d20f        8 weeks ago         155MB
+jaegertracing/all-in-one             1.17                174ca8761b4a        3 months ago        49.2MB
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker container kill c0b7afd7bae8
+Error response from daemon: Cannot kill container: c0b7afd7bae8: No such container: c0b7afd7bae8
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker ps -a
+CONTAINER ID        IMAGE                                  COMMAND                  CREATED             STATUS                     PORTS                                        NAMES
+22ffe9b57dd2        prajwaldock/lwcurrencyconvert04jun:1   "java -Djava.securit"   6 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8085->8085/tcp, 9779/tcp   lwcurrencyconvert04jun1
+0d338455ab2c        prajwaldock/lwconversion04jun:1        "java -Djava.securit"   6 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8081->8081/tcp, 9779/tcp   lwconversion04jun1
+71fd1c25906a        prajwaldock/eureka04jun:1              "java -Djava.securit"   6 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8010->8010/tcp, 9779/tcp   eureka04jun1
+9e8ec3ba3c6e        prajwaldock/lwconversion04jun:1        "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 lwconversion04jun
+bc13fd42fbf7        prajwaldock/lwcurrencyconvert04jun:1   "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 lwcurrencyconvert04jun
+e9e13a70e31f        prajwaldock/eureka04jun:1              "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 eureka04jun
+9fa63bc6dce5        prajwaldock/currencyconvert:1          "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8085->8085/tcp, 9779/tcp   currencyconvert
+c078f7cb9441        prajwaldock/conversion:1               "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8081->8081/tcp, 9779/tcp   conversion
+33e8df045440        prajwaldock/eurekaservermay:1          "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8010->8010/tcp, 9779/tcp   eurekaservermay
+e32654fb2d4c        jaegertracing/all-in-one:1.17          "/go/bin/all-in-one-"   2 weeks ago         Created                                                                 jaeger_jaeger_1
+50c4a8243cbe        openzipkin/zipkin                      "/busybox/sh run.sh"     2 weeks ago         Up 5 minutes               9410/tcp, 0.0.0.0:9411->9411/tcp             zipkin_zipkin_1
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker container kill 22ffe9b57dd2
+Error response from daemon: Cannot kill container: 22ffe9b57dd2: Container 22ffe9b57dd2f8e21fe3e90f7ebb31cd52aac7504e4c273ff4c0db939b1cef61 is not running
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker container rm 22ffe9b57dd2
+22ffe9b57dd2
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker ps -a
+CONTAINER ID        IMAGE                                  COMMAND                  CREATED             STATUS                     PORTS                                        NAMES
+0d338455ab2c        prajwaldock/lwconversion04jun:1        "java -Djava.securit"   6 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8081->8081/tcp, 9779/tcp   lwconversion04jun1
+71fd1c25906a        prajwaldock/eureka04jun:1              "java -Djava.securit"   7 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8010->8010/tcp, 9779/tcp   eureka04jun1
+9e8ec3ba3c6e        prajwaldock/lwconversion04jun:1        "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 lwconversion04jun
+bc13fd42fbf7        prajwaldock/lwcurrencyconvert04jun:1   "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 lwcurrencyconvert04jun
+e9e13a70e31f        prajwaldock/eureka04jun:1              "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 eureka04jun
+9fa63bc6dce5        prajwaldock/currencyconvert:1          "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8085->8085/tcp, 9779/tcp   currencyconvert
+c078f7cb9441        prajwaldock/conversion:1               "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8081->8081/tcp, 9779/tcp   conversion
+33e8df045440        prajwaldock/eurekaservermay:1          "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8010->8010/tcp, 9779/tcp   eurekaservermay
+e32654fb2d4c        jaegertracing/all-in-one:1.17          "/go/bin/all-in-one-"   2 weeks ago         Created                                                                 jaeger_jaeger_1
+50c4a8243cbe        openzipkin/zipkin                      "/busybox/sh run.sh"     2 weeks ago         Up 7 minutes               9410/tcp, 0.0.0.0:9411->9411/tcp             zipkin_zipkin_1
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker container rm bc13fd42fbf7
+bc13fd42fbf7
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>docker ps -a
+CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                     PORTS                                        NAMES
+0d338455ab2c        prajwaldock/lwconversion04jun:1   "java -Djava.securit"   7 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8081->8081/tcp, 9779/tcp   lwconversion04jun1
+71fd1c25906a        prajwaldock/eureka04jun:1         "java -Djava.securit"   7 days ago          Exited (255) 5 hours ago   8778/tcp, 0.0.0.0:8010->8010/tcp, 9779/tcp   eureka04jun1
+9e8ec3ba3c6e        prajwaldock/lwconversion04jun:1   "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 lwconversion04jun
+e9e13a70e31f        prajwaldock/eureka04jun:1         "java -Djava.securit"   7 days ago          Exited (143) 7 days ago                                                 eureka04jun
+9fa63bc6dce5        prajwaldock/currencyconvert:1     "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8085->8085/tcp, 9779/tcp   currencyconvert
+c078f7cb9441        prajwaldock/conversion:1          "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8081->8081/tcp, 9779/tcp   conversion
+33e8df045440        prajwaldock/eurekaservermay:1     "java -Djava.securit"   2 weeks ago         Exited (255) 7 days ago    8778/tcp, 0.0.0.0:8010->8010/tcp, 9779/tcp   eurekaservermay
+e32654fb2d4c        jaegertracing/all-in-one:1.17     "/go/bin/all-in-one-"   2 weeks ago         Created                                                                 jaeger_jaeger_1
+50c4a8243cbe        openzipkin/zipkin                 "/busybox/sh run.sh"     2 weeks ago         Up 8 minutes               9410/tcp, 0.0.0.0:9411->9411/tcp             zipkin_zipkin_1
+
+C:\Users\w2cluster290\MSHandsOn\mschassis-master\docker>cd C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert\target
+
+C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert\target>docker build -t prajwaldock/lwcurrencyconvert12:1 .
+unable to prepare context: unable to evaluate symlinks in Dockerfile path: GetFileAttributesEx C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert\target\Dockerfile: The system cannot find the file specified.
+
+C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert\target>cd ..
+
+C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert>docker build -t prajwaldock/lwcurrencyconvert12:1 .
+Sending build context to Docker daemon   68.8MB
+Step 1/4 : FROM fabric8/java-alpine-openjdk8-jdk
+ ---> 2b7844efe720
+Step 2/4 : ADD target/*.jar app.jar
+ ---> 470bb34dcd7b
+Step 3/4 : RUN touch /app.jar
+ ---> Running in 2654f9b97185
+Removing intermediate container 2654f9b97185
+ ---> 1acce20a2852
+Step 4/4 : ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ ---> Running in 02b4cd2f32ed
+Removing intermediate container 02b4cd2f32ed
+ ---> dd3c247d45b7
+Successfully built dd3c247d45b7
+Successfully tagged prajwaldock/lwcurrencyconvert12:1
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+
+C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert>cd C:\Users\w2cluster290\MSHandsOn\EurekaServer
+
+C:\Users\w2cluster290\MSHandsOn\EurekaServer>docker run -p 8761:8761 -d --name eureka30April --network ms-chassis-nw prabhakarm/eureka30april:1
+
+C:\Users\w2cluster290\MSHandsOn\EurekaServer>docker run -p 8010:8010 -d --name eurekajun12 --network ms-chassis-nw prajwaldock/eureka04jun:1
+e1a6d251dee03ca6d490842662076e64d0eaa91de4c855e283cd56f04a2b3023
+
+C:\Users\w2cluster290\MSHandsOn\EurekaServer>cd C:\Users\w2cluster290\MSHandsOn\lw-conversion\lw-conversion
+
+C:\Users\w2cluster290\MSHandsOn\lw-conversion\lw-conversion>docker run -p 8081:8081 -d --name conversion12 --network ms-chassis-nw prajwaldock/lwconversion04jun:1
+212b8b277ee46e63eeb4f347b028d9d421d2debdfa5170d5f9fad438652df6cd
+
+C:\Users\w2cluster290\MSHandsOn\lw-conversion\lw-conversion>cd C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert
+
+C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert>docker run -p 8085:8085 -d --name currencyconvert12 --network ms-chassis-nw prajwaldock/lwcurrencyconvert12:1
+ee1552329455ecee87270a6ce65e361edd608c5c8a1d150b499cc6963188a8c6
+
+C:\Users\w2cluster290\MSHandsOn\lw-currencyconvert>
